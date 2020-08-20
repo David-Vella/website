@@ -1,8 +1,13 @@
 from flask import Flask
-import json
+import json, socket
 
-with open('/etc/website/config.json') as config_file:
-    config = json.load(config_file)
+CONFIG_FILE = 'website-keys/config.json'
+
+if socket.gethostname() == 'flask-server':
+    CONFIG_FILE = '/home/davella/website-keys/config.json'
+
+with open(CONFIG_FILE) as f:
+    config = json.load(f)
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = config.get('SECRET_KEY')

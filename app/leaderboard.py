@@ -1,7 +1,10 @@
-import json
+import json, socket
 
 LEADERBOARD_SIZE = 25
-LEADERBOARD_FILE = "/etc/website/leaderboard.json"
+LEADERBOARD_FILE = "website-keys/leaderboard.json"
+
+if socket.gethostname() == 'flask-server':
+    LEADERBOARD_FILE = '/home/davella/website-keys/leaderboard.json'
 
 def get():
     with open(LEADERBOARD_FILE, "r") as f:
