@@ -1,0 +1,51 @@
+a.button {
+    color: black;
+    background-color: lightsteelblue;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 3px;
+    border-color: black;
+    display: inline-block;
+}
+a.button:hover {
+    padding-top: 5px;
+    padding-bottom: 4px;
+    border-bottom-width: 2px;
+    border-top-width: 4px;
+    background-color: lightgreen;
+}
+div.center-button {
+    text-align: center;
+    margin-top: 5px;
+}
+div.fill-button {
+    display: flex;
+    flex-direction: row;
+    margin-right: auto;
+    margin-left: auto;
+}
+a.link {
+    color: blue;
+    text-decoration: none;
+    font-weight: bold;
+}
+#reset-button {
+    display: none;
+    margin-top: 10px;
+}
+#center-button-text {
+    width: 240px;
+}
+#add-button {
+    display: none;
+    margin-top: 10px;
+}
+#enter-display-name {
+    display: none;
+}
+#add-confirm {
+    display: none;
+}

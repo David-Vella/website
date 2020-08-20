@@ -1,0 +1,49 @@
+section.main {
+    display: flex;
+    flex-direction: row;
+    vertical-align: top;
+}
+section.right {
+    margin-left: 3px;
+    margin-right: auto;
+    width: 240px;
+}
+section.left {
+    margin-right: 3px;
+    margin-left: auto;
+}
+canvas {
+    background-color: black;
+    margin-top: 10px;
+}
+#flash_msg {
+    display: none;
+}
+section.flash_messages {
+    background-color: yellow;
+    border-style: solid;
+    border-width: 3px;
+    border-color: orange;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+section.score {
+    display: flex;
+    flex-direction: row;
+}
+section h2 {
+    margin-left: 10px;
+}
+section.leaderboard {
+    display: inline-block;
+    width: 170px;
+}
+div.leaderboard-user {
+    float: left;
+}
+div.leaderboard-score {
+    float: right;
+}

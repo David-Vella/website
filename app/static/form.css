@@ -1,0 +1,39 @@
+section.form {
+    width: 480px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+small.invalid-feedback {
+    color: red;
+    margin-top: 0px;
+}
+input {
+    border-radius: 5px;
+    padding: 5px;
+}
+input.form-string-field {
+    border: none;
+}
+input.form-string-field-invalid {
+    border-color: red;
+}
+div.remember-me {
+    display: inline-block;
+    padding-bottom: 15px;
+}
+input.remember-checkbox {
+    border: none;
+}
+input.submit-button {
+    width: 120px;
+    align-self: center;
+    text-align: center;
+}
+input.name-box {
+    width: 207px;
+    background-color: lightskyblue;
+    border-style: solid;
+    border-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
