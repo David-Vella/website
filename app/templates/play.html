@@ -51,6 +51,6 @@
             </section>
         </section>
     </section>
-    <script type="text/javascript">$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};</script>
+    <div id="api-url" style="display: none;">{{ api_url }}</div>
     <script src="{{ url_for('static', filename='snake.js') }}"></script>
 {% endblock content %}

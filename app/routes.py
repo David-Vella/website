@@ -11,13 +11,14 @@ def snake():
     games = leaderboard.games()
     low_score = leaderboard.lowest()
     board = leaderboard.dump_list(10)
-    return render_template('play.html', leaderboard=board, count=games, low_score=low_score)
+    return render_template('play.html', leaderboard=board, count=games, low_score=low_score, api_url=url_for('update_leaderboard'))
 
-@app.route("/update_scores")
-def update_scores():
+@app.route("/api/v1/update_leaderboard", methods=["POST"])
+def update_leaderboard():
     high_score = False
-    score = request.args.get('current_score', 0, type=int)
-    name = request.args.get('name', "user", type=str).strip()
+    request.json.get
+    score = request.json.get('current_score', 0)
+    name = request.json.get('name', "user").strip()
 
     if name == "":
         name = "user"

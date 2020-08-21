@@ -167,10 +167,23 @@ function print() {
 
 function send_score() {
     disp_name = document.getElementById("display-name").value;
-    $.getJSON($SCRIPT_ROOT + '/update_scores', {
-        current_score: score,
-        name: disp_name
-    }, function(data) {
+    api_url = document.getElementById("api-url").innerHTML;
+
+    const request = new XMLHttpRequest();
+    request.open("POST", api_url, true);
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.send(JSON.stringify({
+        name: disp_name,
+        current_score: score
+    }));
+
+    request.onload = function() {
+        try {
+            var data = JSON.parse(this.responseText);
+        }
+        catch(SyntaxError) {
+            return;
+        }
         if (data.high_score) {
             document.getElementById("add-button").style.display = 'none';     
             document.getElementById("enter-display-name").style.display = 'none';
@@ -178,7 +191,7 @@ function send_score() {
             document.getElementById("add-confirm").style.display = 'block';
             document.getElementById("rank").innerHTML = String(data.rank);
         }
-    });
+    }
 }
 
 let game = setInterval(print, 40);
