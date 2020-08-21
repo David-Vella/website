@@ -23,18 +23,22 @@
         </div>
         <hr>
         <div class="contact">
-            <div class="contact-item">
-                resume
-            </div>
-            <div class="contact-item">
-                github
-            </div>
-            <div class="contact-item">
-                linkedIn
-            </div>
-            <div class="contact-item">
-                email
-            </div>
+            <a href="{{ url_for('static', filename='resume.pdf') }}" target="_blank">
+                <img class="contact-icon" src="{{ url_for('static', filename='logo-doc.png') }}">
+                <div>R&eacute;sum&eacute;</div>
+            </a>
+            <a href="https://github.com/David-Vella" target="_blank">
+                <img class="contact-icon" src="{{ url_for('static', filename='logo-github.png') }}">
+                <div>GitHub</div>
+            </a>
+            <a href="https://www.linkedin.com/in/david-vella-657b581b4/" target="_blank">
+                <img class="contact-icon" src="{{ url_for('static', filename='logo-linkedin.png') }}">
+                <div>LinkedIn</div>
+            </a>
+            <a href="https://www.youtube.com/user/Actionscout101/featured" target="_blank">
+                <img class="contact-icon" src="{{ url_for('static', filename='logo-youtube.png') }}">
+                <div>YouTube</div>
+            </a>
         </div>
         <!-- <hr>
         <div class="interests">
