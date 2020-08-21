@@ -39,7 +39,7 @@ div.biography {
     padding-right: 20px;
     display: flex;
     flex-direction: row;
-    width: 95%;
+    width: auto;
 }
 
 @media only screen and (max-width: 600px) {
