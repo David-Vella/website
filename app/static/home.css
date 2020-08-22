@@ -119,3 +119,64 @@ div.contact a div {
         margin-left: auto;
     }
 }
+
+div.interests {
+    padding: 20px;
+}
+
+div.interests-title {
+    font-size: 18pt;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+div.interest-items {
+    display: flex;
+    justify-content: center;
+}
+
+div.interest-item {
+    width: 100%;
+    max-width: 100px;
+    position: relative;
+    text-align: center;
+}
+
+img.interest-item {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+div.interest-item span.interest-text {
+    visibility: hidden;
+    position: absolute;
+    width: 100px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    display: inline-block;
+    z-index: 1;
+
+    bottom: 120%;
+    left: 50%;
+    margin-left: -50px;
+}
+
+div.interest-item span.interest-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+div.interest-item:hover span.interest-text {
+    visibility: visible;
+}
