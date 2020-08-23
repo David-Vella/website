@@ -81,10 +81,17 @@ div.contact {
     /* background-color: green; */
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     padding-top: 10px;
     padding-bottom: 20px;
-    justify-content: space-around;
     font-size: 14pt;
+}
+
+div.contact-row {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 img.contact-icon {
@@ -107,30 +114,26 @@ div.contact a div {
     div.contact {
         flex-direction: column;
     }
+    div.contact-row {
+        width: 100%;
+    }
     div.contact a {
         padding: 5px;
-    }
-    div.contact a div {
-        margin: unset;
-        margin-right: auto;
-    }
-    img.contact-icon {
-        margin: unset;
-        margin-left: auto;
     }
 }
 
 div.interests {
-    padding: 20px;
+    padding: 10px;
 }
 
 div.interests-title {
     font-size: 18pt;
     text-align: center;
-    padding-bottom: 20px;
+    padding: 10px;
 }
 
 div.interest-items {
+    padding: 10px;
     display: flex;
     justify-content: center;
 }
