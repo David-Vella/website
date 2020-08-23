@@ -1,14 +1,12 @@
 from flask import Flask
 import json, socket
 
-CONFIG_FILE = 'website-keys/config.json'
-LEADERBOARD_FILE = "website-keys/leaderboard.json"
+PATH = ''
 
 if socket.gethostname() == 'flask-server':
-    CONFIG_FILE = '/home/davella/website-keys/config.json'
-    LEADERBOARD_FILE = '/home/davella/website-keys/leaderboard.json'
+    PATH = '/home/davella/'
 
-with open(CONFIG_FILE) as f:
+with open(PATH + 'website-keys/config.json') as f:
     config = json.load(f)
 
 app = Flask(__name__)

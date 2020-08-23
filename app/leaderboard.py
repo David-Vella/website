@@ -1,7 +1,8 @@
-from app import LEADERBOARD_FILE
+from app import PATH
 import json, socket
 
 LEADERBOARD_SIZE = 25
+LEADERBOARD_FILE = PATH + 'website-keys/leaderboard.json'
 
 def get():
     with open(LEADERBOARD_FILE, "r") as f:
