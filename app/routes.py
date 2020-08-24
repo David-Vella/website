@@ -6,6 +6,10 @@ from app import app, leaderboard
 def home():
     return render_template('home.html')
 
+@app.route("/resume")
+def resume():
+    return redirect(url_for('static', filename='resume.pdf'))
+
 @app.route("/snake")
 def snake():
     games = leaderboard.games()
