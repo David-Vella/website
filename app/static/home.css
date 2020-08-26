@@ -20,7 +20,7 @@ a:hover {
     text-decoration: underline;
 }
 
-div.box {
+.box {
     background-color: rgba(0, 0, 0, 0.2);
     max-width: 1000px;
     width: 95%;
@@ -31,7 +31,7 @@ div.box {
     margin-top: 20px;
 }
 
-div.biography {
+.biography {
     /* background-color: green; */
     padding-top: 30px;
     padding-bottom: 10px;
@@ -60,24 +60,24 @@ img.portrait {
     border-radius: 100px;
 }
 
-div.about {
+.about {
     /* background-color: red; */
     max-width: 600px;
     padding-left: 20px;
     padding-right: 20px;
 }
 
-div.name {
+.name {
     font-size: 24pt;
     text-align: center;
     padding-bottom: 10px;
 }
 
-div.summary {
+.summary {
     text-align: left;
 }
 
-div.contact {
+.contact {
     /* background-color: green; */
     display: flex;
     flex-direction: row;
@@ -87,56 +87,56 @@ div.contact {
     font-size: 14pt;
 }
 
-div.contact-column {
+.contact-column {
     width: 50%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-img.contact-icon {
+.contact-icon {
     width: 25px;
     height: 25px;
     border-radius: 3px;
 }
 
-div.contact a {
+.contact a {
     display: flex;
     flex-direction: row;
 }
 
-div.contact a div {
+.contact a div {
     padding-left: 5px;
     margin: auto;
 }
 
 @media only screen and (max-width: 500px) {
-    div.contact {
+    .contact {
         justify-content: space-evenly;
     }
-    div.contact-column {
+    .contact-column {
         width: auto;
         flex-direction: column;
     }
-    div.contact a {
+    .contact a {
         padding: 5px;
     }
-    div.contact a div {
+    .contact a div {
         margin-left: unset;
     }
 }
 
-div.interests {
+.interests {
     padding: 10px;
 }
 
-div.interests-title {
+.interests-title {
     font-size: 18pt;
     text-align: center;
     padding: 10px;
 }
 
-div.interest-items {
+.interest-items {
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -155,7 +155,7 @@ img.interest-item {
     border-radius: 50%;
 }
 
-div.interest-item span.interest-text {
+.interest-item .interest-text {
     visibility: hidden;
     position: absolute;
     width: 100px;
@@ -173,7 +173,7 @@ div.interest-item span.interest-text {
     margin-left: -50px;
 }
 
-div.interest-item span.interest-text::after {
+.interest-item .interest-text::after {
     content: "";
     position: absolute;
     top: 100%;
@@ -184,6 +184,13 @@ div.interest-item span.interest-text::after {
     border-color: black transparent transparent transparent;
 }
 
-div.interest-item:hover span.interest-text {
+.interest-item:hover .interest-text {
     visibility: visible;
+}
+
+.source-link {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
 }
