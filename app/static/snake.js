@@ -1,12 +1,49 @@
 // Snake by davella 1/5/2020
 // adapted from Code Explained: https://youtu.be/9TcU2C1AACw
 
-const cvs = document.getElementById("canvas");
+let cvs = document.getElementById("canvas");
+let cnt = document.getElementById("container");
+let bar = document.getElementById("bottom-bar");
+
+cvs.width = 144;
+cvs.height = 144;
+
+function resize() {
+    let cvs_size = cvs.getBoundingClientRect();
+    console.log(cvs_size.width);
+    console.log(cvs_size.height);
+    if (window.innerWidth > window.innerHeight) {
+        console.log("true");
+        while (cvs.width + 48 < window.innerHeight) {
+            cvs.width += 48;
+            cvs.height += 48;
+        }
+        cnt.style.width = String(window.innerHeight * 0.9) + "px";
+        bar.style.width = String(window.innerHeight * 0.9) + "px";
+        bar.style.height = String(window.innerHeight * 0.09) + "px";
+        cvs.style.width = String(window.innerHeight * 0.9) + "px";
+        cvs.style.height = String(window.innerHeight * 0.9) + "px";
+    } else {
+        console.log("false");
+        while (cvs.width + 48 < window.innerWidth) {
+            cvs.width += 48;
+            cvs.height += 48;
+        }
+        cvs.style.height = String(window.innerWidth) + "px";
+    }
+    cvs_size = cvs.getBoundingClientRect();
+    console.log("after:");
+    console.log(cvs.width);
+    console.log(cvs.height);
+}
+resize();
+window.onresize = resize;
+
 const ctx = cvs.getContext("2d");
 
 const rst = document.getElementById("reset-button");
 const submit = document.getElementById("add-button");
-const low_score = document.getElementById("low_score").innerHTML;
+const low_score = document.getElementById("low-score").innerHTML;
 disp_name = "user";
 
 const board = 16;
@@ -28,8 +65,6 @@ snake[0] = {
     y : (board / 2) * unit
 }
 
-genFood();
-
 // generates a food square randomly on the board
 function genFood() {
     openSpaces = [];
@@ -46,27 +81,62 @@ function genFood() {
     }
     food = openSpaces[Math.floor(Math.random() * openSpaces.length)];
 }
+genFood();
 
-// determine new direction of the snake when a key is pressed
-let firstPress = false;
-document.addEventListener("keydown", direction);
-function direction(event) {
-    if (firstPress == false) {
-        firstPress = true;
+let first_press = false;
+
+function check_first_press() {
+    if (first_press == false) {
+        first_press = true;
         count = 0;
     }
-    let input = inputs[0];
-    if ((event.keyCode == 37 || event.keyCode == 65 || event.keyCode == 74) && inputs[0] != "RIGHT") {
-        input = "LEFT";
-    } else if ((event.keyCode == 38 || event.keyCode == 87 || event.keyCode == 73) && inputs[0] != "DOWN") {
-        input = "UP";
-    } else if ((event.keyCode == 39 || event.keyCode == 68 || event.keyCode == 76) && inputs[0] != "LEFT") {
-        input = "RIGHT";
-    } else if ((event.keyCode == 40 || event.keyCode == 83 || event.keyCode == 75) && inputs[0] != "UP") {
-        input = "DOWN";
-    }
-    if (input != inputs[0]) inputs.push(input);
 }
+
+function input_left() {
+    check_first_press();
+    let last = inputs.slice(-1)[0]
+    if (last != "LEFT" && last != "RIGHT") {
+        inputs.push("LEFT");
+    }
+}
+
+function input_right() {
+    check_first_press();
+    let last = inputs.slice(-1)[0];
+    if (last != "RIGHT" && last != "LEFT") {
+        inputs.push("RIGHT");
+    }
+}
+
+function input_up() {
+    check_first_press();
+    let last = inputs.slice(-1)[0];
+    if (last != "UP" && last != "DOWN") {
+        inputs.push("UP");
+    }
+}
+
+function input_down() {
+    check_first_press();
+    let last = inputs.slice(-1)[0];
+    if (last != "DOWN" && last != "UP") {
+        inputs.push("DOWN");
+    }
+}
+
+function direction(event) {
+    let input = inputs[0];
+    if (event.keyCode == 37 || event.keyCode == 65) {
+        input_left();
+    } else if (event.keyCode == 38 || event.keyCode == 87) {
+        input_up();
+    } else if (event.keyCode == 39 || event.keyCode == 68) {
+        input_right();
+    } else if (event.keyCode == 40 || event.keyCode == 83) {
+        input_down();
+    }
+}
+document.addEventListener("keydown", direction);
 
 // checks if point object coinsides with snake
 // the piont object contains an x and y porperty

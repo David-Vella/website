@@ -1,56 +1,37 @@
-{% extends "snake.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="img/png" href="{{ url_for('static', filename='snake.png') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='play.css') }}">
-    <section class="main">
-        <section class="left">
-            <canvas id="canvas" width="480" height="480"></canvas>
-            <section class="instructions" id="box">
-                <h3>Controls</h3>
-                <hr>Change snake direction using <em><strong>wasd</strong></em>, 
-                    <em><strong>ijkl</strong></em>, or the 
-                    <em><strong>arrow keys</strong></em>.
-                <br/>Start game by pressing one of the allowed control keys. 
-            </section>
-        </section>
-        <section class="right">
-            <section class="score" id="box">
-                <h2>Score:</h2>
-                <h2 id="score"></h2>
-            </section>
-            <section class="flash_messages" id="flash_msg"><strong>New High Score!</strong></section>
-            <div id="enter-display-name">
-                <section id="box">
-                    Enter a display name<br>
-                    <input id="display-name" class="name-box" type="text" maxlength="15">
-                </section>
+    <title>Snake</title>
+</head>
+<body>
+    <div id="container">
+        <canvas id="canvas"></canvas>
+        <div id="bottom-bar">
+            <div class="score-container">Score: <span id="score"></span></div>
+            <div id="show-mobile" class="mobile-container"><a>Show mobile controls</a></div>
+            <div id="hide-mobile" class="mobile-container"><a>Hide mobile controls</a></div>
+        </div>
+        <div id="mobile-controls">
+            <div id="controls-row-1" class="control-row">
+                <div class="control-button" onclick="input_up()" ><b>UP</b></div>
             </div>
-            <div id="add-confirm">
-                <section id="box">
-                    Your Rank: <div id="rank" class="inline"></div>
-                </section>
+            <div id="controls-row-2" class="control-row">
+                <div class="control-button" onclick="input_left()"><b>LEFT</b></div>
+                <div></div>
+                <div class="control-button" onclick="input_right()"><b>RIGHT</b></div>
             </div>
-            <div class="center-button" id="add-button">
-                <a id="center-button-text" class="button" onclick="send_score()">Add to Leaderboard</a>
+            <div id="controls-row-3" class="control-row">
+                <div class="control-button" onclick="input_down()"><b>DOWN</b></div>
             </div>
-            <div class="center-button" id="reset-button">
-                <a id="center-button-text" class="button" href="{{ url_for('snake') }}">Reset</a>
-            </div>
-            <section class="leaderboard-box" id="box">
-                <h3>Leaderboard</h3><hr>
-                {% for user in leaderboard %}
-                    <section class="leaderboard-full">
-                        <div class="leaderboard-small-rank">{{ user.rank }}. {{ user.name }}</div>
-                        <div class="leaderboard-full-score">{{ user.score }}</div>
-                    </section>
-                {% endfor %}
-                Score to Beat: <div class="inline" id="low_score">{{ low_score }}</div>
-                <br><a class="link" href="{{ url_for('snake_leaderboard') }}"><small>View Full Leaderboard</small></a>
-            </section>
-            <section class="game-counter" id="box">
-                Total games played: <div class="inline" id="count">{{ count }}</div>
-            </section>
-        </section>
-    </section>
+        </div>
+    </div>
     <div id="api-url" style="display: none;">{{ api_url }}</div>
+    <div id="low-score" style="display: none;">{{ low_score }}</div>
     <script src="{{ url_for('static', filename='snake.js') }}"></script>
-{% endblock content %}
+</body>
+</html>
