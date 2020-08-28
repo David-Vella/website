@@ -36,7 +36,7 @@
         <div id="center">
             <div id="game-over" class="on-top" style="display: none;">
                 <div class="menu-title">Game Over!</div>
-                <div class="menu-button"><a href="{{ url_for('play') }}">Play Again</a></div>
+                <div class="menu-button"><a onclick="run_script()"">Play Again</a></div>
                 <div class="menu-button"><a href="{{ url_for('snake') }}">Back to Menu</a></div>
             </div>
             <div id="send-score" class="on-top" style="display: none;">
@@ -47,7 +47,7 @@
             <div id="show-rank" class="on-top" style="display: none;">
                 <div class="menu-title">Congratulations!</div>
                 <div class="menu-button">Your Rank: <span id="rank">None</span></div>
-                <div class="menu-button"><a href="{{ url_for('play') }}">Play Again</a></div>
+                <div class="menu-button"><a onclick="run_script()">Play Again</a></div>
             </div>
         </div>
     </div>
