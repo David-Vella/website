@@ -26,6 +26,9 @@ def check_score():
 
     score = request.json.get("score", 0)
 
+    if score > 0:
+        leaderboard.incrament()
+
     if leaderboard.lowest() <= score:
         high_score = True
     

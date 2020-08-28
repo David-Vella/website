@@ -26,9 +26,6 @@ def incrament():
     save(leaderboard)
 
 def update(user_name, user_score):
-    if user_score > 0:
-        incrament()
-
     leaderboard = get()
 
     high_score = False
