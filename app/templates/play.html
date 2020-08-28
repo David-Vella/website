@@ -13,8 +13,12 @@
         <canvas id="canvas"></canvas>
         <div id="bottom-bar">
             <div class="score-container">Score: <span id="score"></span></div>
-            <div id="show-mobile" class="mobile-container"><a>Show mobile controls</a></div>
-            <div id="hide-mobile" class="mobile-container"><a>Hide mobile controls</a></div>
+            <div id="show-mobile" class="mobile-container">
+                <a onclick="show_mobile_controls()">show mobile controls</a>
+            </div>
+            <div id="hide-mobile" class="mobile-container">
+                <a onclick="hide_mobile_controls()">hide mobile controls</a>
+            </div>
         </div>
         <div id="mobile-controls">
             <div id="controls-row-1" class="control-row">
@@ -29,9 +33,26 @@
                 <div class="control-button" onclick="input_down()"><b>DOWN</b></div>
             </div>
         </div>
+        <div id="center">
+            <div id="game-over" class="on-top" style="display: none;">
+                <div class="menu-title">Game Over!</div>
+                <div class="menu-button"><a href="{{ url_for('snake') }}">Play Again</a></div>
+                <div class="menu-button"><a href="{{ url_for('snake') }}">Back to Menu</a></div>
+            </div>
+            <div id="send-score" class="on-top" style="display: none;">
+                <div class="menu-title">High Score!</div>
+                <input id="display-name" class="menu-input" type="text" placeholder="Enter a Display Name" maxlength="20">
+                <div class="menu-button"><a onclick="send_score()">Add to Leaderboard</a></div>
+            </div>
+            <div id="show-rank" class="on-top" style="display: none;">
+                <div class="menu-title">Congratulations!</div>
+                <div class="menu-button">Your Rank: <span id="rank">None</span></div>
+                <div class="menu-button"><a href="{{ url_for('snake') }}">Play Again</a></div>
+            </div>
+        </div>
     </div>
-    <div id="api-url" style="display: none;">{{ api_url }}</div>
-    <div id="low-score" style="display: none;">{{ low_score }}</div>
+    <div id="leaderboard-url" style="display: none;">{{ url_for('update_leaderboard') }}</div>
+    <div id="check-score-url" style="display: none;">{{ url_for('check_score') }}</div>
     <script src="{{ url_for('static', filename='snake.js') }}"></script>
 </body>
 </html>

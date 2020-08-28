@@ -11,13 +11,12 @@
     <title>Snake</title>
 </head>
 <body>
-    <header>
-        <h1>Snake</h1>
-        <div class="header">
-            <h5>by David Vella</h5>
-            <h6><a class="link" href="{{ url_for('snake_about') }}">About</a></h6>
-        </div>
-    </header>
-    {% block content %}{% endblock content %}
+    <div id="container">
+        <header>
+            <h1>Snake</h1>
+            {% block header %}{% endblock header %}
+        </header>
+        {% block content %}{% endblock content %}
+    </div>
 </body>
 </html>

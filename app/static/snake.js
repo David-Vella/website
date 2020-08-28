@@ -9,11 +9,7 @@ cvs.width = 144;
 cvs.height = 144;
 
 function resize() {
-    let cvs_size = cvs.getBoundingClientRect();
-    console.log(cvs_size.width);
-    console.log(cvs_size.height);
     if (window.innerWidth > window.innerHeight) {
-        console.log("true");
         while (cvs.width + 48 < window.innerHeight) {
             cvs.width += 48;
             cvs.height += 48;
@@ -24,7 +20,6 @@ function resize() {
         cvs.style.width = String(window.innerHeight * 0.9) + "px";
         cvs.style.height = String(window.innerHeight * 0.9) + "px";
     } else {
-        console.log("false");
         while (cvs.width + 48 < window.innerWidth) {
             cvs.width += 48;
             cvs.height += 48;
@@ -32,31 +27,117 @@ function resize() {
         cvs.style.height = String(window.innerWidth) + "px";
     }
     cvs_size = cvs.getBoundingClientRect();
-    console.log("after:");
-    console.log(cvs.width);
-    console.log(cvs.height);
 }
 resize();
 window.onresize = resize;
 
-const ctx = cvs.getContext("2d");
+function show_mobile_controls() {
+    document.getElementById("show-mobile").style.display = "none";
+    document.getElementById("hide-mobile").style.display = "block";
+    const style = document.createElement("style");
+    style.id = "mobile-controls-style";
+    style.innerHTML = "\
+        #container {\
+            max-width: 50vh;\
+        }\
+        #canvas {\
+            max-height: 50vh;\
+            max-width: 50vh;\
+        }\
+        #bottom-bar {\
+            max-width: 50vh;\
+            height: 6vh;\
+            margin-bottom: 1vh;\
+        }\
+        #mobile-controls {\
+            height: 42vh;\
+            display: block;\
+        }\
+        #show-mobile {\
+            display: none;\
+        }\
+        #hide-mobile {\
+            display: inline;\
+        }\
+        #center {\
+            bottom: 65%;\
+        }\
+        .on-top {\
+            height: 150px;\
+            width: 200px;\
+            left: -100px;\
+            padding: 5px;\
+        }\
+        .menu-title {\
+            font-size: 20pt;\
+        }\
+        .menu-button {\
+            font-size: 14pt;\
+        }\
+        @media only screen and (min-width: 600px) {\
+            #mobile-controls {\
+                height: 39vh;\
+            }\
+            .control-row div {\
+                width: 13vh;\
+                height: 13vh;\
+            }\
+        }\
+    ";
+    document.head.appendChild(style);
+    resize();
+}
 
-const rst = document.getElementById("reset-button");
-const submit = document.getElementById("add-button");
-const low_score = document.getElementById("low-score").innerHTML;
-disp_name = "user";
+function hide_mobile_controls() {
+    document.getElementById("hide-mobile").style.display = "none";
+    document.getElementById("show-mobile").style.display = "block";
+    document.getElementById("mobile-controls-style").remove();
+    resize();
+}
+
+if (window.innerWidth <= 600) {
+    show_mobile_controls();
+}
+
+function show_game_over() {
+    document.getElementById("game-over").style.display = "flex";
+    document.getElementById("send-score").style.display = "none";
+    document.getElementById("show-rank").style.display = "none";
+}
+
+function show_send_score() {
+    document.getElementById("game-over").style.display = "none";
+    document.getElementById("send-score").style.display = "flex";
+    document.getElementById("show-rank").style.display = "none";
+}
+
+function show_rank() {
+    document.getElementById("game-over").style.display = "none";
+    document.getElementById("send-score").style.display = "none";
+    document.getElementById("show-rank").style.display = "flex";
+}
+
+function hide_all() {
+    document.getElementById("game-over").style.display = "none";
+    document.getElementById("send-score").style.display = "none";
+    document.getElementById("show-rank").style.display = "none";
+}
+
+var score;
+
+const ctx = cvs.getContext("2d");
 
 const board = 16;
 const unit = cvs.width / board;
 const subgrid = 3;
 
-let score = 0;
-
-let inputs = [];
 let grow = 0;
-let count;
-
 let food;
+let count = 0;
+
+score = 0;
+let first_press = false;
+let inputs = [];
 
 // snake is an array of point objects which contain an x and y property
 let snake = [];
@@ -82,8 +163,6 @@ function genFood() {
     food = openSpaces[Math.floor(Math.random() * openSpaces.length)];
 }
 genFood();
-
-let first_press = false;
 
 function check_first_press() {
     if (first_press == false) {
@@ -125,7 +204,6 @@ function input_down() {
 }
 
 function direction(event) {
-    let input = inputs[0];
     if (event.keyCode == 37 || event.keyCode == 65) {
         input_left();
     } else if (event.keyCode == 38 || event.keyCode == 87) {
@@ -171,8 +249,7 @@ function print() {
         if (i < subgrid) {
             ctx.fillStyle = "lightgreen";
             ctx.fillRect(snake[i].x, snake[i].y, unit, unit);
-        }
-        else {
+        } else {
             ctx.fillStyle = "green";
             ctx.fillRect(snake[i].x, snake[i].y, unit, unit);
             ctx.strokeStyle = "lightgreen";
@@ -214,17 +291,9 @@ function print() {
     // game over rules
     if (headX < 0 || headY < 0 || headX > (board - 1) * unit || headY > (board - 1) * unit
         || collision(newHead) == true) {
-        clearInterval(game);
 
-        if (low_score <= score) {
-            document.getElementById("flash_msg").style.display = 'block';
-            document.getElementById("add-button").style.display = 'flex';     
-            document.getElementById("enter-display-name").style.display = 'flex';                 
-            submit.style.display = 'flex'; 
-        } else {
-            rst.style.display = 'flex'; 
-            send_score();
-        }
+        clearInterval(game);
+        check_score();
     }
 
     // add the new head to front of snake
@@ -234,34 +303,57 @@ function print() {
     if (count == subgrid - 1) count = 0;
     else count++;   
 }
+let game = setInterval(print, 40);
 
-function send_score() {
-    disp_name = document.getElementById("display-name").value;
-    api_url = document.getElementById("api-url").innerHTML;
+function check_score() {
+    api_url = document.getElementById("check-score-url").innerHTML;
 
     const request = new XMLHttpRequest();
+
     request.open("POST", api_url, true);
-    request.setRequestHeader('Content-Type', 'application/json');
+    request.setRequestHeader("Content-Type", "application/json");
     request.send(JSON.stringify({
-        name: disp_name,
-        current_score: score
+        score: score
+    }));
+
+    request.onload = function() {
+        try {
+            let data = JSON.parse(this.responseText);
+            if (data.high_score) {
+                show_send_score();
+            } else {
+                show_game_over();
+            }
+        } catch(SyntaxError) {
+            show_game_over();
+        }
+    }
+}
+
+function send_score() {
+    display_name = document.getElementById("display-name").value;
+    api_url = document.getElementById("leaderboard-url").innerHTML;
+
+    const request = new XMLHttpRequest();
+
+    request.open("POST", api_url, true);
+    request.setRequestHeader("Content-Type", "application/json");
+    request.send(JSON.stringify({
+        name: display_name,
+        score: score
     }));
 
     request.onload = function() {
         try {
             var data = JSON.parse(this.responseText);
-        }
-        catch(SyntaxError) {
-            return;
+        } catch(SyntaxError) {
+            show_game_over();
         }
         if (data.high_score) {
-            document.getElementById("add-button").style.display = 'none';     
-            document.getElementById("enter-display-name").style.display = 'none';
-            rst.style.display = 'flex';  
-            document.getElementById("add-confirm").style.display = 'block';
             document.getElementById("rank").innerHTML = String(data.rank);
+            show_rank();
+        } else {
+            show_game_over();
         }
     }
 }
-
-let game = setInterval(print, 40);

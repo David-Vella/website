@@ -17,11 +17,26 @@ def snake():
     board = leaderboard.dump_list(10)
     return render_template('play.html', leaderboard=board, count=games, low_score=low_score, api_url=url_for('update_leaderboard'))
 
+@app.route("/play")
+def play():
+    return render_template("play.html")
+
+@app.route("/api/v1/check_score", methods=["POST"])
+def check_score():
+    high_score = False
+
+    score = request.json.get("score", 0)
+
+    if leaderboard.lowest() <= score:
+        high_score = True
+    
+    return jsonify(high_score=high_score)
+
 @app.route("/api/v1/update_leaderboard", methods=["POST"])
 def update_leaderboard():
     high_score = False
-    request.json.get
-    score = request.json.get('current_score', 0)
+
+    score = request.json.get('score', 0)
     name = request.json.get('name', "user").strip()
 
     if name == "":
@@ -29,10 +44,7 @@ def update_leaderboard():
 
     high_score, rank = leaderboard.update(name, score)
 
-    if high_score:
-        return jsonify(high_score=high_score, rank=rank, score=score)
-    else:
-        return redirect(url_for('snake'))
+    return jsonify(high_score=high_score, rank=rank)
 
 @app.route("/snake-leaderboard")
 def snake_leaderboard():
