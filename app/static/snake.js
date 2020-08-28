@@ -34,59 +34,19 @@ window.onresize = resize;
 function show_mobile_controls() {
     document.getElementById("show-mobile").style.display = "none";
     document.getElementById("hide-mobile").style.display = "block";
-    const style = document.createElement("style");
-    style.id = "mobile-controls-style";
-    style.innerHTML = "\
-        #container {\
-            max-width: 50vh;\
-        }\
-        #canvas {\
-            max-height: 50vh;\
-            max-width: 50vh;\
-        }\
-        #bottom-bar {\
-            max-width: 50vh;\
-            height: 6vh;\
-            margin-bottom: 1vh;\
-        }\
-        #mobile-controls {\
-            display: block;\
-            height: 30vh;\
-        }\
-        .control-row div {\
-            width: 10vh;\
-            height: 10vh;\
-        }\
-        #show-mobile {\
-            display: none;\
-        }\
-        #hide-mobile {\
-            display: inline;\
-        }\
-        #center {\
-            bottom: 65%;\
-        }\
-        .on-top {\
-            height: 150px;\
-            width: 200px;\
-            left: -100px;\
-            padding: 5px;\
-        }\
-        .menu-title {\
-            font-size: 20pt;\
-        }\
-        .menu-button {\
-            font-size: 14pt;\
-        }\
-    ";
-    document.head.appendChild(style);
+    const link = document.createElement("link");
+    link.id = "mobile-controls";
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    link.href = document.getElementById("mobile-controls-url").innerHTML;
+    document.head.appendChild(link);
     resize();
 }
 
 function hide_mobile_controls() {
     document.getElementById("hide-mobile").style.display = "none";
     document.getElementById("show-mobile").style.display = "block";
-    document.getElementById("mobile-controls-style").remove();
+    document.getElementById("mobile-controls").remove();
     resize();
 }
 

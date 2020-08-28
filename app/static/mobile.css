@@ -1,0 +1,41 @@
+#container {
+    max-width: 50vh;
+}
+#canvas {
+    max-height: 50vh;
+    max-width: 50vh;
+}
+#bottom-bar {
+    max-width: 50vh;
+    height: 6vh;
+    margin-bottom: 1vh;
+}
+#mobile-controls {
+    display: block;
+    height: 30vh;
+}
+.control-row div {
+    width: 10vh;
+    height: 10vh;
+}
+#show-mobile {
+    display: none;
+}
+#hide-mobile {
+    display: inline;
+}
+#center {
+    bottom: 65%;
+}
+.on-top {
+    height: 150px;
+    width: 200px;
+    left: -100px;
+    padding: 5px;
+}
+.menu-title {
+    font-size: 20pt;
+}
+.menu-button {
+    font-size: 14pt;
+}
