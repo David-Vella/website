@@ -51,11 +51,11 @@ function show_mobile_controls() {
         }\
         #mobile-controls {\
             display: block;\
-            height: 33vh;\
+            height: 30vh;\
         }\
         .control-row div {\
-            width: 11vh;\
-            height: 11vh;\
+            width: 10vh;\
+            height: 10vh;\
         }\
         #show-mobile {\
             display: none;\
@@ -77,15 +77,6 @@ function show_mobile_controls() {
         }\
         .menu-button {\
             font-size: 14pt;\
-        }\
-        @media only screen and (min-width: 600px) {\
-            #mobile-controls {\
-                height: 39vh;\
-            }\
-            .control-row div {\
-                width: 13vh;\
-                height: 13vh;\
-            }\
         }\
     ";
     document.head.appendChild(style);
