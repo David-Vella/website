@@ -13,9 +13,8 @@ def resume():
 @app.route("/snake")
 def snake():
     games = leaderboard.games()
-    low_score = leaderboard.lowest()
-    board = leaderboard.dump_list(10)
-    return render_template('play.html', leaderboard=board, count=games, low_score=low_score, api_url=url_for('update_leaderboard'))
+    board = leaderboard.dump_list()
+    return render_template('snake.html', leaderboard=board, games=games)
 
 @app.route("/play")
 def play():
@@ -45,12 +44,3 @@ def update_leaderboard():
     high_score, rank = leaderboard.update(name, score)
 
     return jsonify(high_score=high_score, rank=rank)
-
-@app.route("/snake-leaderboard")
-def snake_leaderboard():
-    board = leaderboard.dump_list()
-    return render_template('leaderboard.html', leaderboard=board)
-
-@app.route("/snake-about")
-def snake_about():
-    return render_template('about.html')

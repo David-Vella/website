@@ -6,17 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" type="img/png" href="{{ url_for('static', filename='snake.png') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='snake.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='buttons.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='form.css') }}">
     <title>Snake</title>
 </head>
 <body>
+    <div id="header" class="box">
+        <div>Snake</div>
+    </div>
     <div id="container">
-        <header>
-            <h1>Snake</h1>
-            {% block header %}{% endblock header %}
-        </header>
-        {% block content %}{% endblock content %}
+        <div id="play" class="box">
+            <div class="box-title">Play</div>
+            <hr>
+            <div id="instructions">
+                Try to eat the food without colliding with walls of yourself.
+                Turn the snake using the arrow keys or on-screen buttons.
+            </div>
+            <div id="img">
+                <img src="{{ url_for('static', filename='play.png') }}">
+            </div>
+            <div id="play-snake">
+                <a href="{{ url_for('play') }}">Play Snake</a>
+            </div>
+        </div>
+        <div id="leaderboard" class="box">
+            <div class="box-title">Leaderboard</div>
+            <hr>
+            {% for user in leaderboard %}
+            <div class="leaderboard-entry">
+                <div>{{ user.rank }}.</div>
+                <div>{{ user.name }}</div>
+                <div>{{ user.score }}</div>
+            </div>
+            {% endfor %}
+            <hr>
+            <div id="games-played">Games Played: {{ games }}</div>
+        </div>
     </div>
 </body>
 </html>

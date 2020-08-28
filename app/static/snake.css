@@ -1,93 +1,105 @@
-html {
-    width: 100%;
-    height: 100%;
-}
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(50, 50, 55);
     color: black;
-    width: 100%;
-    height: 100%;
-    margin: 0;
 }
-header {
-    background-color:lightskyblue;
-    display: flex;
-    flex-direction: row;
-    border-radius: 5px;
+hr {
+    color: black;
+    border: 1px solid black;
+    width: 94%;
+}
+#header {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 80px;
+}
+#header div {
+    font-size: 50px;
+    padding-left: 20px;
+    padding-top: 12px;
 }
 #container {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-}
-header h1 {
-    margin-left: 40px;
-    margin-right: auto;
-}
-header h5 {
-    margin-right: 25px;
-    margin-left: auto;
-    margin-bottom: auto;
-}
-header h6 {
-    margin-right: 25px;
-    margin-left: auto;
-    margin-top: auto;
-}
-#box {
-    background-color: lightskyblue;
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 10px;
-}
-section h3 {
-    margin-left: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-hr {
-    border: 1px solid black;
-    background-color: black; 
-}
-
-section.about {
-    width: 480px;
-    margin-top: 10px;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
-}
-section.return{
-    text-align: center;
-}
-
-div.inline {
-    display: inline;
-}
-section.leaderboard-page {
-    width: 360px;
-    margin-left: auto;
-    margin-right: auto;
-}
-section.leaderboard-full {
-    width: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
-div.leaderboard-full-rank {
-    margin-left: 10px;
-    margin-right: auto;
+.box {
+    background-color: lightskyblue;
+    border-radius: 20px;
+    height: min-content;
+    margin-top: 10px;
 }
-div.leaderboard-full-score {
+.box-title {
+    text-align: left;
+    font-size: 24px;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+#play {
+    max-width: 600px;
+    width: auto;
     margin-right: 10px;
-    margin-left: auto;
 }
-div.leaderboard-full-user {
-    margin-right: auto;
-    margin-left: auto;
+#play #instructions {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
 }
-div.leaderboard-small-rank {
-    margin-right: auto;
-    margin-left: 10px;
+#img {
+    text-align: center;
+}
+#img img {
+    width: 80%;
+    height: auto;
+}
+#play-snake {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+#play-snake a {
+    color: black;
+    font-size: 18pt;
+    text-decoration: none;
+    background-color: lightgrey;
+    border: 3px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+#play-snake a:hover {
+    background-color: lightgreen;
+}
+#leaderboard {
+    max-width: 400px;
+    width: 80%;
+}
+.leaderboard-entry {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.leaderboard-entry div {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+#games-played {
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+@media only screen and (max-width: 600px) {
+    #container {
+        flex-direction: column;
+        max-width: 400px;
+    }
+    #play {
+        margin-right: 0px;
+    }
+    #leaderboard {
+        width: 100%;
+    }
 }
