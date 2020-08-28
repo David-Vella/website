@@ -5,7 +5,38 @@ let cvs = document.getElementById("canvas");
 let cnt = document.getElementById("container");
 let bar = document.getElementById("bottom-bar");
 
+function show_mobile_controls() {
+    document.getElementById("show-mobile").style.display = "none";
+    document.getElementById("hide-mobile").style.display = "block";
+
+    const link = document.createElement("link");
+
+    link.id = "mobile-controls-style";
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    link.href = document.getElementById("mobile-controls-url").innerHTML;
+
+    document.head.appendChild(link);
+}
+
+function hide_mobile_controls() {
+    document.getElementById("hide-mobile").style.display = "none";
+    document.getElementById("show-mobile").style.display = "block";
+
+    try {
+        document.getElementById("mobile-controls-style").remove();
+    } catch (TypeError) { }
+}
+
 function resize() {
+    if (window.innerWidth <= 600) {
+        console.log("showing mobile controls");
+        show_mobile_controls();
+    } else {
+        console.log("hiding mobile controls");
+        hide_mobile_controls();
+    }
+
     cvs.width = 144;
     cvs.height = 144;
 
@@ -30,31 +61,6 @@ function resize() {
 resize();
 window.onresize = resize;
 
-function show_mobile_controls() {
-    document.getElementById("show-mobile").style.display = "none";
-    document.getElementById("hide-mobile").style.display = "block";
-
-    const link = document.createElement("link");
-
-    link.id = "mobile-controls";
-    link.rel = "stylesheet";
-    link.type = "text/css";
-    link.href = document.getElementById("mobile-controls-url").innerHTML;
-
-    document.head.appendChild(link);
-
-    resize();
-}
-
-function hide_mobile_controls() {
-    document.getElementById("hide-mobile").style.display = "none";
-    document.getElementById("show-mobile").style.display = "block";
-
-    document.getElementById("mobile-controls").remove();
-
-    resize();
-}
-
 function show_game_over() {
     document.getElementById("game-over").style.display = "flex";
     document.getElementById("send-score").style.display = "none";
@@ -77,10 +83,6 @@ function hide_all() {
     document.getElementById("game-over").style.display = "none";
     document.getElementById("send-score").style.display = "none";
     document.getElementById("show-rank").style.display = "none";
-}
-
-if (window.innerWidth <= 600) {
-    show_mobile_controls();
 }
 
 let score = 0;
@@ -295,7 +297,7 @@ function check_score() {
         } catch(SyntaxError) {
             show_game_over();
         }
-    }
+    };
 }
 
 function send_score() {
@@ -323,5 +325,5 @@ function send_score() {
         } else {
             show_game_over();
         }
-    }
+    };
 }
