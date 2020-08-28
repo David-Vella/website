@@ -1,7 +1,14 @@
 {
     "short_name": "Snake",
     "name": "Snake Web App",
-    "start_url": "/play",
+    "icons": [
+        {
+          "src": "https://davidvella.me/static/snake.png",
+          "sizes": "384x384",
+          "type": "image/png"
+        }
+    ],
+    "start_url": "https://davidvella.me/play",
     "display": "fullscreen",
     "orientation": "portrait"
 }
