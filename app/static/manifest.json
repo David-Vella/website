@@ -1,0 +1,7 @@
+{
+    "short_name": "Snake",
+    "name": "Snake Web App",
+    "start_url": "/play",
+    "display": "fullscreen",
+    "orientation": "portrait"
+}
