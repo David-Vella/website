@@ -50,8 +50,12 @@ function show_mobile_controls() {
             margin-bottom: 1vh;\
         }\
         #mobile-controls {\
-            height: 42vh;\
             display: block;\
+            height: 33vh;\
+        }\
+        .control-row div {\
+            width: 11vh;\
+            height: 11vh;\
         }\
         #show-mobile {\
             display: none;\
