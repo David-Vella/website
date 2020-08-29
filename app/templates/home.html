@@ -52,8 +52,8 @@
         </div>
     </div>
     <div class="box">
+        <div class="box-title">My Skills</div>
         <div class="interests">
-            <div class="interests-title">My Skills</div>
             <div class="interest-items">
                 <div class="interest-item">
                     <img class="interest-item" src="{{ url_for('static', filename='icon-c.png') }}">
@@ -79,7 +79,71 @@
         </div>
     </div>
     <div class="box">
-        <a class="source-link" href="https://github.com/David-Vella/website" target="_blank">Click here to view source code of this site on GitHub</a>
+        <div class="box-title">Recent Projects</div>
+        <div class="project">
+            <div class="project-title">
+                Flight Controller
+            </div>
+            <div class="project-content">            
+                <div class="project-summary">
+                    An Arduino-based flight controller for radio-controlled aircraft capable of autonomous cruise, takeoff, and landing. The flight controller add self-leveling features that make the aircraft more stable and easier to fly
+                </div>
+                <div class="project-icons">
+                    <img src="{{ url_for('static', filename='icon-cpp.png') }}">
+                    <img src="{{ url_for('static', filename='icon-python.png') }}">
+                    <a href="https://github.com/David-Vella/autopilot" target="_blank">View Source Code</a>
+                    <a href="https://youtu.be/LKHaLUJmDkU" target="_blank">Watch Video</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="project">
+            <div class="project-title">
+                Snake Web App
+            </div>
+            <div class="project-content">
+                <div class="project-summary">
+                    An implementation of the classic snake game with a responsive Javascript/HTML/CSS frontend and Python backend. The app features a leaderboard to encourage friendly competition.
+                </div>
+                <div class="project-icons">
+                    <img src="{{ url_for('static', filename='icon-js.png') }}">
+                    <img src="{{ url_for('static', filename='icon-python.png') }}">
+                    <a href="https://github.com/David-Vella/website" target="_blank">View Source Code</a>
+                    <a href="https://davidvella.me/snake" target="_blank">Visit Site</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="project">
+            <div class="project-title">
+                Arduino MPU6050 Library
+            </div>
+            <div class="project-content">
+                <div class="project-summary">
+                    A lightweight Arduino library for computing roll, pitch, and yaw angles with the MPU6050 6-axis gyroscope and accelerometer. The library uses quaternions to accurately track orientation while also handling I2C communication with the sensor.
+                </div>
+                <div class="project-icons">
+                    <img src="{{ url_for('static', filename='icon-cpp.png') }}">
+                    <a href="https://github.com/David-Vella/mpu6050" target="_blank">View Source Code</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="project">
+            <div class="project-title">
+                GPU Power Manager
+            </div>
+            <div class="project-content">
+                <div class="project-summary">
+                    A tool that improves battery life on laptops running Linux with dedicated Nvidia graphics cards. The software puts the GPU into a low power state when not in use, reducing power consumption.
+                </div>
+                <div class="project-icons">
+                    <img src="{{ url_for('static', filename='icon-c.png') }}">
+                    <img src="{{ url_for('static', filename='icon-shell.png') }}">
+                    <a href="https://github.com/David-Vella/optimus-manager-pm" target="_blank">View Source Code</a>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

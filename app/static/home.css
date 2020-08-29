@@ -4,22 +4,18 @@ body {
     color: white;
     background-color: rgb(40, 44, 52);
 }
-
 hr {
     border: 1px solid white;
     background-color: white;
     width: 95%;
 }
-
 a {
     color: white;
     text-decoration: none;
 }
-
 a:hover {
     text-decoration: underline;
 }
-
 .box {
     background-color: rgba(0, 0, 0, 0.2);
     max-width: 1000px;
@@ -30,7 +26,11 @@ a:hover {
     margin-right: auto;
     margin-top: 20px;
 }
-
+.box-title {
+    font-size: 24pt;
+    text-align: center;
+    padding-top: 20px;
+}
 .biography {
     /* background-color: green; */
     padding-top: 30px;
@@ -41,42 +41,38 @@ a:hover {
     flex-direction: row;
     width: auto;
 }
-
 @media only screen and (max-width: 600px) {
     div.biography {
         flex-direction: column;
     }
+    hr {
+        width: 90%;
+    }
 }
-
 div.portrait {
     /* background-color: blue; */
     width: auto;
     margin: auto;
 }
-
 img.portrait {
     width: 200px;
     height: 200px;
     border-radius: 100px;
 }
-
 .about {
     /* background-color: red; */
     max-width: 600px;
     padding-left: 20px;
     padding-right: 20px;
 }
-
 .name {
-    font-size: 24pt;
+    font-size: 28pt;
     text-align: center;
     padding-bottom: 10px;
 }
-
 .summary {
     text-align: left;
 }
-
 .contact {
     /* background-color: green; */
     display: flex;
@@ -86,30 +82,25 @@ img.portrait {
     padding-bottom: 20px;
     font-size: 14pt;
 }
-
 .contact-column {
     width: 50%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
-
 .contact-icon {
     width: 25px;
     height: 25px;
     border-radius: 3px;
 }
-
 .contact a {
     display: flex;
     flex-direction: row;
 }
-
 .contact a div {
     padding-left: 5px;
     margin: auto;
 }
-
 @media only screen and (max-width: 500px) {
     .contact {
         justify-content: space-evenly;
@@ -125,36 +116,25 @@ img.portrait {
         margin-left: unset;
     }
 }
-
 .interests {
     padding: 10px;
 }
-
-.interests-title {
-    font-size: 18pt;
-    text-align: center;
-    padding: 10px;
-}
-
 .interest-items {
     padding: 10px;
     display: flex;
     justify-content: center;
 }
-
 div.interest-item {
     width: 100%;
     max-width: 100px;
     position: relative;
     text-align: center;
 }
-
 img.interest-item {
     width: 60px;
     height: 60px;
     border-radius: 50%;
 }
-
 .interest-item .interest-text {
     visibility: hidden;
     position: absolute;
@@ -172,7 +152,6 @@ img.interest-item {
     left: 50%;
     margin-left: -50px;
 }
-
 .interest-item .interest-text::after {
     content: "";
     position: absolute;
@@ -183,14 +162,46 @@ img.interest-item {
     border-style: solid;
     border-color: black transparent transparent transparent;
 }
-
 .interest-item:hover .interest-text {
     visibility: visible;
 }
-
-.source-link {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 10px;
+.project {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+}
+.project-title {
+    font-size: 18pt;
+}
+.project-content {
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+}
+.project-summary {
+    margin-top: 7px;
+    margin-bottom: 7px; 
+}
+.project-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+.project-icons img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+.project-icons a {
+    margin-top: 7px;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: rgb(52, 122, 180);
+}
+@media only screen and (max-width: 600px) {
+    .project {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
 }
