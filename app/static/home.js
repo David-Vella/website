@@ -25,3 +25,16 @@ document.getElementById("copy-email").addEventListener("click", function() {
         }, 3000);
     }
 });
+
+let timeout;
+
+function show_skill(text) {
+    clearTimeout(timeout);
+    let title = document.getElementById("interests-title");
+    title.innerHTML = text;
+    title.style.color = "rgb(52, 122, 180)";
+    timeout = setTimeout(function() {
+        title.innerHTML = "My Skills";
+        title.style.color = "white";
+    }, 1500);
+}

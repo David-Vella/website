@@ -136,7 +136,13 @@ img.interest-item {
     height: 60px;
     border-radius: 50%;
 }
+.interest-item:hover {
+    cursor: pointer;
+}
 .interest-item .interest-text {
+    display: none;
+}
+/* .interest-item .interest-text {
     visibility: hidden;
     position: absolute;
     width: 100px;
@@ -165,7 +171,7 @@ img.interest-item {
 }
 .interest-item:hover .interest-text {
     visibility: visible;
-}
+} */
 .project {
     padding-top: 10px;
     padding-bottom: 20px;
