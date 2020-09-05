@@ -25,15 +25,15 @@ function hide_mobile_controls() {
 
     try {
         document.getElementById("mobile-controls-style").remove();
-    } catch (TypeError) { }
+    } catch (TypeError) {
+        console.log("failed to hide mobile controls");
+    }
 }
 
 function resize() {
     if (window.innerWidth <= 600) {
-        console.log("showing mobile controls");
         show_mobile_controls();
     } else {
-        console.log("hiding mobile controls");
         hide_mobile_controls();
     }
 
