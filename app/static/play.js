@@ -288,13 +288,13 @@ function check_score() {
 
     request.onload = function() {
         try {
-            let data = JSON.parse(this.responseText);
-            if (data.high_score) {
-                show_send_score();
-            } else {
-                show_game_over();
-            }
+            var data = JSON.parse(this.responseText);
         } catch(SyntaxError) {
+            show_game_over();
+        }
+        if (data.high_score) {
+            show_send_score();
+        } else {
             show_game_over();
         }
     };
