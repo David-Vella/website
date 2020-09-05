@@ -18,12 +18,7 @@
                     David Vella
                 </div>
                 <div class="summary">
-                    Hello, my name is David and I am an undergraduate Computer Science 
-                    student at the University of Michigan College of Engineering in 
-                    Ann Arbor, MI. I am always writing software or tinkering with hardware. 
-                    My primary interests are Linux and embedded systems. I am passionate 
-                    about open source and my everyday laptop runs Arch Linux. I enjoy 
-                    solving problems and look forward to taking on new challenges.
+                    Hello, my name is David and I am an undergraduate Computer Science student at the University of Michigan College of Engineering in Ann Arbor, MI. I am always writing software or tinkering with hardware. My primary interests are Linux and embedded systems. I am passionate about open source and my everyday laptop runs Arch Linux. I enjoy solving problems and look forward to taking on new challenges.
                 </div>
             </div>
         </div>
@@ -44,7 +39,7 @@
                     <img class="contact-icon" src="{{ url_for('static', filename='logo-linkedin.png') }}">
                     <div>LinkedIn</div>
                 </a>
-                <a href="mailto: davella@umich.edu" target="_blank">
+                <a id="copy-email" title="davella@umich.edu">
                     <img class="contact-icon" src="{{ url_for('static', filename='logo-email.png') }}">
                     <div>Email</div>
                 </a>
@@ -86,7 +81,7 @@
             </div>
             <div class="project-content">            
                 <div class="project-summary">
-                    An Arduino-based flight controller for radio-controlled aircraft capable of autonomous cruise, takeoff, and landing. The flight controller add self-leveling features that make the aircraft more stable and easier to fly
+                    An Arduino-based flight controller for radio-controlled aircraft capable of autonomous cruise, takeoff, and landing. The flight controller adds self-leveling features that make the aircraft more stable and easier to fly.
                 </div>
                 <div class="project-icons">
                     <img src="{{ url_for('static', filename='icon-cpp.png') }}">
@@ -145,5 +140,6 @@
             </div>
         </div>
     </div>
+    <script src="{{ url_for('static', filename='home.js') }}"></script>
 </body>
 </html>
