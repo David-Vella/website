@@ -8,7 +8,7 @@ def home():
 
 @app.route("/resume")
 def resume():
-    return redirect(url_for('static', filename='resume.pdf'))
+    return redirect("https://raw.githubusercontent.com/David-Vella/resume/master/resume.pdf")
 
 @app.route("/snake")
 def snake():
