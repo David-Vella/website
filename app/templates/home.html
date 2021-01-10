@@ -77,16 +77,48 @@
         <div class="box-title">Recent Projects</div>
         <div class="project">
             <div class="project-title">
-                Flight Controller
+                Vertical Takeoff Aircraft
             </div>
             <div class="project-content">            
                 <div class="project-summary">
-                    An Arduino-based flight controller for radio-controlled aircraft capable of autonomous cruise, takeoff, and landing. The flight controller adds self-leveling features that make the aircraft more stable and easier to fly.
+                    I am currently working on a stabilizing flight controller for vertical take-off, radio-controlled aircraft. The video below shows the aircraft flying in the vertical flight mode. In the future, the aircraft will be able to transition into the horizontal flight mode where it will fly like an airplane.
                 </div>
                 <div class="project-icons">
-                    <a href="https://github.com/David-Vella/autopilot" target="_blank">View Code</a>
-                    <a href="https://youtu.be/LKHaLUJmDkU" target="_blank">Watch Video</a>
+                    <a href="https://github.com/David-Vella/vtol" target="_blank">View Code on GitHub</a>
                 </div>
+                <div class="iframe-container">
+                    <iframe id="iframe" width="95%" height="auto" src="https://www.youtube.com/embed/w1JT1x1ZX3E"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="project">
+            <div class="project-title">
+               Stabilizing Flight Controller
+            </div>
+            <div class="project-content">            
+                <div class="project-summary">
+                    An Arduino based flight controller for radio-controlled aircraft. The flight controller uses a gyroscope and feedback loop to sense and control the aircraft's orientation. This system adds autopilot capability and makes the aircraft more stable and easier to fly.
+                </div>
+                <div class="project-icons">
+                    <a href="https://github.com/David-Vella/autopilot" target="_blank">View Code on GitHub</a>
+                </div>
+                <div class="iframe-container">
+                    <iframe id="iframe" width="auto" height="auto" src="https://www.youtube.com/embed/LKHaLUJmDkU"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="project">
+            <div class="project-title">
+                Linux System Monitor
+            </div>
+            <div class="project-content">
+                <div class="project-summary">
+                    A Qt application for monitoring CPU temperatures and other hardware. The application serves as a graphical front-end for <a href="https://github.com/lm-sensors/lm-sensors">lm-sensors</a>, featuring efficient real time plotting of sensor data.
+                </div>
+                <div class="project-icons">
+                    <a href="https://github.com/David-Vella/system-monitor" target="_blank">View Code on GitHub</a>
+                </div>
+                <div class="iframe-container"><img src="{{ url_for('static', filename='system-monitor.png') }}"></div>
             </div>
         </div>
         <div class="project">
@@ -98,35 +130,9 @@
                     An implementation of the classic snake game with a responsive Javascript/HTML/CSS frontend and Python backend. The app features a leaderboard to encourage friendly competition.
                 </div>
                 <div class="project-icons">
-                    <a href="https://github.com/David-Vella/website" target="_blank">View Code</a>
-                    <a href="https://davidvella.me/snake" target="_blank">Visit Site</a>
+                    <a href="https://davidvella.me/snake" target="_blank">Play Game</a>
                 </div>
-            </div>
-        </div>
-        <div class="project">
-            <div class="project-title">
-                Linux System Monitor
-            </div>
-            <div class="project-content">
-                <div class="project-summary">
-                    A Qt application for monitoring CPU temperatures and other hardware. The application serves as a graphical front-end for <a href="https://github.com/lm-sensors/lm-sensors">lm_sensors</a>, featuring efficient real time plotting of sensor data.
-                </div>
-                <div class="project-icons">
-                    <a href="https://github.com/David-Vella/system-monitor" target="_blank">View Code</a>
-                </div>
-            </div>
-        </div>
-        <div class="project">
-            <div class="project-title">
-                Arduino IMU Library
-            </div>
-            <div class="project-content">
-                <div class="project-summary">
-                    A lightweight Arduino library for computing roll, pitch, and yaw angles with the MPU6050 6-axis gyroscope and accelerometer. The library uses quaternions to accurately track orientation while also handling I2C communication with the sensor.
-                </div>
-                <div class="project-icons">
-                    <a href="https://github.com/David-Vella/mpu6050" target="_blank">View Code</a>
-                </div>
+                <div class="iframe-container"><img src="{{ url_for('static', filename='play.png') }}"></div>
             </div>
         </div>
     </div>

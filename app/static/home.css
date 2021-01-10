@@ -190,9 +190,28 @@ img.interest-item {
     padding-left: 2.5%;
     padding-right: 2.5%;
 }
+.project-content img {
+    width: 95%;
+    height: auto;
+    margin-top: 15px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+}
 .project-summary {
     margin-top: 7px;
     margin-bottom: 7px; 
+}
+.iframe-container {
+    display: flex;
+    justify-content: center;
+}
+.iframe-container iframe {
+    margin-top: 15px;
+    border: none;
+}
+.project a {
+    color: rgb(90, 149, 212);
 }
 .project-icons {
     display: flex;
@@ -209,7 +228,6 @@ img.interest-item {
     margin-top: 7px;
     margin-right: 10px;
     margin-left: 10px;
-    color: rgb(90, 149, 212);
 }
 @media only screen and (max-width: 600px) {
     .project {

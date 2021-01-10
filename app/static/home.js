@@ -36,3 +36,15 @@ function show_skill(text) {
         title.innerHTML = "My Skills";
     }, 1000);
 }
+
+window.onload = function() {
+    let iframes = document.querySelectorAll("iframe");
+
+    for (let i = 0; i < iframes.length; i++) {
+        iframes[i].style.width = "95%";
+
+        let frameWidth = parseInt(iframes[i].clientWidth, 10);
+        let frameHeight = Math.round(frameWidth * (9 / 16));
+        iframes[i].style.height = frameHeight.toString(10) + "px";
+    }
+};
