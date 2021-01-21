@@ -8,7 +8,7 @@ def home():
 
 @app.route("/resume")
 def resume():
-    return redirect("https://raw.githubusercontent.com/David-Vella/resume/master/resume.pdf")
+    return redirect("https://raw.githubusercontent.com/David-Vella/resume/master/DavidVellaResume.pdf")
 
 @app.route("/snake")
 def snake():
