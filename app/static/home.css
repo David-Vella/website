@@ -20,13 +20,13 @@ a:hover {
 .box {
     background-color: rgba(0, 0, 0, 0.2);
     max-width: 1000px;
-    width: 95%;
+    width: 99%;
     border-radius: 20px;
 
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .box-title {
     font-size: 24pt;
@@ -145,36 +145,6 @@ img.interest-item {
 .interest-item .interest-text {
     display: none;
 }
-/* .interest-item .interest-text {
-    visibility: hidden;
-    position: absolute;
-    width: 100px;
-    background-color: black;
-    color: white;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-
-    display: inline-block;
-    z-index: 1;
-
-    bottom: 120%;
-    left: 50%;
-    margin-left: -50px;
-}
-.interest-item .interest-text::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: black transparent transparent transparent;
-}
-.interest-item:hover .interest-text {
-    visibility: visible;
-} */
 .project {
     padding-top: 10px;
     padding-bottom: 20px;
@@ -209,6 +179,7 @@ img.interest-item {
 .iframe-container iframe {
     margin-top: 15px;
     border: none;
+    display: none;
 }
 .project a {
     color: rgb(90, 149, 212);

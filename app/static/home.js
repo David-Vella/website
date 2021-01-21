@@ -41,6 +41,8 @@ window.onload = function() {
     let iframes = document.querySelectorAll("iframe");
 
     for (let i = 0; i < iframes.length; i++) {
+        iframes[i].style.display = "inline";
+
         iframes[i].style.width = "95%";
 
         let frameWidth = parseInt(iframes[i].clientWidth, 10);
